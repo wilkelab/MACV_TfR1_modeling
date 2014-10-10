@@ -46,27 +46,28 @@ def make_map(chain, temp_seq, template_pdb, model_seq, model_pdb, align_file, ma
 	
 	mod_i = 0
 	temp_i = 0
+	seq_space_i = 1
 	#Use the alignment to print out the sequence including gaps
 	for (mod_aa, temp_aa) in zip(model_seq, temp_seq):
 		if mod_aa != '-' and temp_aa!= '-':
 			#print temp_res_nums[temp_i], temp_aa, mod_res_nums[mod_i], mod_aa
-			out.write(chain + "\t" + str(temp_res_nums[temp_i]) + "\t" + temp_aa + "\t" + str(mod_res_nums[mod_i]) + "\t" + mod_aa + "\n" )
+			out.write(chain + "\t" + str(temp_res_nums[temp_i]) + "\t" + temp_aa + "\t" + str(mod_res_nums[mod_i]) + "\t" + mod_aa + "\t" + str(seq_space_i) + "\n")
 			temp_i += 1
 			mod_i += 1
 		if mod_aa != "-" and temp_aa == "-":
 			#print "NA", "-", mod_res_nums[mod_i], mod_aa
-			out.write(chain + "\t" + "NA\t" + "-" + "\t" + str(mod_res_nums[mod_i]) + "\t" + mod_aa + "\n")
+			out.write(chain + "\t" + "NA\t" + "-" + "\t" + str(mod_res_nums[mod_i]) + "\t" + mod_aa + "\t" + str(seq_space_i) + "\n")
 			mod_i += 1
 		if temp_aa!= "-" and mod_aa == "-":
 			#print temp_res_nums[temp_i], temp_aa, "NA", "-"
-			out.write(chain + "\t" + str(temp_res_nums[temp_i]) + "\t" + temp_aa +  "\tNA\t" + "-" + "\n")
+			out.write(chain + "\t" + str(temp_res_nums[temp_i]) + "\t" + temp_aa +  "\tNA\t" + "-" + "\t" + str(seq_space_i) +"\n")
 			temp_i += 1
-
+		seq_space_i = seq_space_i + 1
 	out.close()
 	
 def main(argv = sys.argv):
 	#Perform the mapping for each virus and each TfR1 variant
-	viruses = ["JUNV"]
+	viruses = ["JUNV", "MACV", "SABV", "CHPV"]
 	variants = ["ccal", "human", "human_L212V", "mouse_5aa", "mouse", "rat", "rat_5aa", "rat_9aa"]
 	if (os.path.isdir("./model_maps")):
 		subprocess.call("rm -r model_maps", shell = True)
@@ -81,7 +82,7 @@ def main(argv = sys.argv):
 			map_filename = "model_maps/" + variant + "_" + virus + "_GP1_map.txt"
 			
 			out = open(map_filename, "a") #Output file
-			out.write("chain\ttemplate_resnum\ttemplate_resname\tmodel_resnum\tmodel_resname\n")
+			out.write("chain\ttemplate_resnum\ttemplate_resname\tmodel_resnum\tmodel_resname\tseq_space_resum\n")
 			out.close()
 			
 			sequences, headers = mp.get_sequences(align_file) #Get the two sequences from the alignment
