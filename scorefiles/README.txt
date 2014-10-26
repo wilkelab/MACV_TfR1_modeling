@@ -1,0 +1,1 @@
+This directory contains the RosettaDock scorefiles for all of the models.
