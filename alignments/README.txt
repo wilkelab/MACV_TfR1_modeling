@@ -1,0 +1,1 @@
+#This folder contains the .ali alignments that were used in the modeling process. These were generated using Modeller.
