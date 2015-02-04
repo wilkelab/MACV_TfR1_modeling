@@ -1,2 +1,1 @@
 This directory contains the top 10 models for each modeled structure.
-These structures are been renamed for convience. For example the top scoring (most negative) model by interface score is numbered 1, the second 2, etc. For example the human trfr1- MACV GP1 model with the best interace score is called MACV_GP1_1.pdb.

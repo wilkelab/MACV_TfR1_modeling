@@ -37,7 +37,7 @@ all.data$TfR1 <- relevel(  all.data$TfR1, "human_MACV" )
 # clean-up data, pick top hits, store in data frame "top.hits"
 top.hits <-
     # select columns of interest
-    select(all.data, TfR1, I_sc, total_score, rms) %>%
+    select(all.data, description, TfR1, I_sc, total_score, rms) %>%
     # order them by TfR1 and interface score
     arrange( TfR1, I_sc ) %>%
     # group by TfR1
