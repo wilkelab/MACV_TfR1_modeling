@@ -15,7 +15,7 @@ macv.data$TfR1 <- factor( macv.data$TfR1, levels=c("Human", "Human L212V", "Mous
 
 macv.data <- join(macv.data, infection_data)
 
-macv.data.reduced <- filter(macv.data, TfR1 %in% c("Human", "Human L212V", "Mouse", "Mouse-Hum"))
+macv.data.reduced <- filter(macv.data, TfR1 %in% c("Human", "Human L212V", "Rat", "Rat-Long"))
 
 
 #Plot 1: Plot means 
