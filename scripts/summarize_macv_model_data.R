@@ -4,22 +4,22 @@ library(dplyr) # for select(), arrange(), group_by(), filter()
 
 # turn file names into nice receptor names
 macv = list("ccal_MACV_GP1_docking.fasc",
-    		"mouse_5aa_MACV_GP1_docking.fasc",
+    		"mouse_human_MACV_GP1_docking.fasc",
     		"mouse_MACV_GP1_docking.fasc",
              "human_MACV_GP1_docking.fasc",
              "human_L212V_MACV_GP1_docking.fasc",
              "rat_MACV_GP1_docking.fasc",
-             "rat_5aa_MACV_GP1_docking.fasc",
-             "rat_9aa_MACV_GP1_docking.fasc")
+             "rat_short_MACV_GP1_docking.fasc",
+             "rat_long_MACV_GP1_docking.fasc")
 
 macv.gp1 <- c("C.cal_MACV",
-        	"mouse.5aa_MACV",
+        	"mouse.human_MACV",
     		"mouse_MACV",
              "human_MACV",
              "human.L212V_MACV",
              "rat_MACV",
-             "rat.5aa_MACV",
-             "rat.9aa_MACV")
+             "rat.short_MACV",
+             "rat.long_MACV")
 				
 names(macv) <- macv.gp1
 

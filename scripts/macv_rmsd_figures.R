@@ -9,7 +9,7 @@ TfR1_names <- c("C. callosus", "Human", "Human L212V", "Mouse", "Mouse-Hum", "Ra
 
 infection_data <- data.frame(TfR1 = TfR1_names, infects = factor(c("yes", "yes", "no", "no", "yes", "no", "partially", "yes")))
 
-macv.data$TfR1 <- mapvalues( macv.data$TfR1, from=c("C.cal_MACV", "human_MACV", "human.L212V_MACV", "mouse_MACV", "mouse.5aa_MACV", "rat_MACV", "rat.5aa_MACV", "rat.9aa_MACV"), to=TfR1_names)    
+macv.data$TfR1 <- mapvalues( macv.data$TfR1, from=c("C.cal_MACV", "human_MACV", "human.L212V_MACV", "mouse_MACV", "mouse.human_MACV", "rat_MACV", "rat.short_MACV", "rat.short_MACV"), to=TfR1_names)    
 
 macv.data$TfR1 <- factor( macv.data$TfR1, levels=c("Human", "Human L212V", "Mouse", "Mouse-Hum", "Rat", "Rat-Short", "Rat-Long", "C. callosus"))
 
