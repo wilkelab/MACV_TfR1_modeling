@@ -14,8 +14,7 @@ macv.data$TfR1 <- mapvalues( macv.data$TfR1, from=c("C.cal_MACV", "human_MACV", 
 macv.data$TfR1 <- factor( macv.data$TfR1, levels=c("Human", "Human L212V", "Mouse", "Mouse-Hum", "Rat", "Rat-Short", "Rat-Long", "C. callosus"))
 
 macv.data <- join(macv.data, infection_data)
-
-macv.data.reduced <- filter(macv.data, TfR1 %in% c("Human", "Human L212V", "Rat", "Rat-Long"))
+macv.data.reduced <- filter(macv.data, TfR1 %in% c("Human", "Human L212V", "Rat", "Rat-Short"))
 
 
 #Plot 1: Plot means 
