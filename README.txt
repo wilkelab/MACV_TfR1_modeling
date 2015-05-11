@@ -1,3 +1,3 @@
-MACV L212V modeling
+MACV TfR1 modeling
 ===================
-This repository holds data and analysis scripts related to the computational modeling of the effect of the hTfR1 mutation L212V on MACV and related viruses.
+This repository holds data and analysis scripts related to the computational modeling of MACV GP1 binding to various TfR1 variants.
