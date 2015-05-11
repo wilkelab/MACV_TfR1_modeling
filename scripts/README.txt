@@ -1,0 +1,1 @@
+These are the scripts that are needed to plot the results. To plot the results first run summarize_macv_model_data.R. 

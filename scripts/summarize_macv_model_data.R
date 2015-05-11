@@ -1,6 +1,6 @@
 library(plyr) # for ldply(), mapvalues()
 library(dplyr) # for select(), arrange(), group_by(), filter() 
-
+#This is a script that is run before you run the plotting scripts. It just extracts the info from scorefiles and writes it to a csv
 
 # turn file names into nice receptor names
 macv = list("ccal_MACV_GP1_docking.fasc",

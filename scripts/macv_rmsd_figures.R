@@ -2,19 +2,22 @@ require(plyr) # for mapvalues()
 require(dplyr) # for filter() 
 require(ggplot2) # ggplot()
 
-macv.summary.I_sc = read.table("../data/macv_summary_data.csv", sep = ",", header = T)
+#Plots the SCORE VS RMSD FUNNEL PLOTS
+macv.summary.I_sc = read.table("../data/macv_summary_data.csv", sep = ",", header = T) #Read in the data
 macv.data  = read.table("../data/macv_model_data.csv", sep = ",", header = T)
 
+#The TfR1 names
 TfR1_names <- c("C. callosus", "Human", "Human L212V", "Mouse", "Mouse-Hum", "Rat", "Rat-Short", "Rat-Long")
 
+#Changing the infection data
 infection_data <- data.frame(TfR1 = TfR1_names, infects = factor(c("yes", "yes", "no", "no", "yes", "no", "partially", "yes")))
 
 macv.data$TfR1 <- mapvalues( macv.data$TfR1, from=c("C.cal_MACV", "human_MACV", "human.L212V_MACV", "mouse_MACV", "mouse.human_MACV", "rat_MACV", "rat.short_MACV", "rat.long_MACV"), to=TfR1_names)    
 
 macv.data$TfR1 <- factor( macv.data$TfR1, levels=c("Human", "Human L212V", "Mouse", "Mouse-Hum", "Rat", "Rat-Short", "Rat-Long", "C. callosus"))
 
-macv.data <- join(macv.data, infection_data)
-macv.data.reduced <- filter(macv.data, TfR1 %in% c("Human", "Human L212V", "Rat", "Rat-Short"))
+macv.data <- join(macv.data, infection_data) 
+macv.data.reduced <- filter(macv.data, TfR1 %in% c("Human", "Human L212V", "Rat", "Rat-Short")) #For making a reduced plot
 
 
 #Plot 1: Plot means 
